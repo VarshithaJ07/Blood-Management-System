@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blood Requests</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+        }
+        label {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        input, select, button {
+            padding: 8px;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="container3">
+    <h1>Blood Requests</h1>
+  <div style="display: flex; align-items: flex-start; gap: 20px;">
+    <form action="/add_request" method="POST">
+        <label for="hospital_name">Hospital Name:</label>
+        <select name="hospital_name" id="hospital_name" required>
+            <option value="" disabled selected>Select hospital</option>
+            <option value="City Hospital">City Hospital</option>
+            <option value="Green Valley Medical">Green Valley Medical</option>
+            <option value="Sunrise Clinic">Sunrise Clinic</option>
+            <option value="JSS">JSS</option>
+            <option value="St. Mary's Hospital">St. Mary's Hospital</option>
+            <option value="Metro Health Center">Metro Health Center</option>
+            <option value="BGS Apollo Hospital">BGS Apollo Hospital</option>
+            <option value="Brindavan Hospital">Brindavan Hospital</option>
+            <option value="Narayana Hospital">Narayana Hospital</option>
+            <option value="Sigma Hospital">Sigma Hospital</option>
+        </select>
+
+        <label for="blood_type">Blood Type:</label>
+        <select name="blood_type" id="blood_type" required>
+            <option value="" disabled selected>Select blood type</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+        </select>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" id="quantity" placeholder="Quantity" required>
+
+        <button type="submit">Request Blood</button>
+    </form>
+
+    
+ </div>
+</body>
+</html>

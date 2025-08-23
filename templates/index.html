@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blood Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <h1 class="head">Blood Donation Management System</h1>
+    <nav class="navbar">
+      <div class="d-flex flex column">
+        <img src="{{ url_for('static', filename='css/logo1.png') }}" class="logo">
+        
+      </div>
+        <ul class="nav-links">
+<li><a href="/">Home</a></li>
+            <li><a href="/search.html">Search Donor</a></li>
+            <li><a href="/donors">Registration of Donors</a></li>
+            <li><a href="/donor_list">List of Donors</a></li>
+            <li><a href="/requests"> Requests</a></li>
+            <li><a href="/request_list">Blood Requests list</a></li>
+<li><a href="/contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    
+    <section class="hero" id="home">
+      
+        <div class="hero-text">
+          <h1>Welcome to Blood Donation Management System</h1>
+            <p>Donate blood, Save lives.<br> Be the reason for someone's heartbeat.</p>
+<a href="/donors" class="btn">Become a Donor</a> 
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="feature">
+          <i class="fas fa-search"></i>
+          <h3>Search Donors</h3>
+          <p>Find blood donors quickly and easily.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-user-plus"></i>
+          <h3>Register</h3>
+          <p>Join our community of life-savers.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-envelope"></i>  
+          <h3>Contact Us</h3>             
+          <p>Reach out to us for any help or queries.</p>  
+        </div>
+        
+      </section>
+
+    <!-- Footer -->
+    <footer class="footer1">
+        <p>© 2025 BloodCare | All rights reserved</p>
+    </footer>
+</body>
+</html>

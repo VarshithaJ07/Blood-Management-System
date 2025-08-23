@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blood Request List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {background-color: #f9f9f9;}
+    </style>
+</head>
+<body class="container4">
+    <h1 style="color:rgb(110, 58, 58)">Blood Request List</h1>
+    {% if requests %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Hospital Name</th>
+                    <th>Blood Type</th>
+                    <th>Quantity</th>
+                    <th>Request Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for req in requests %}
+                <tr>
+                    <td>{{ req.hospital_name }}</td>
+                    <td>{{ req.blood_type }}</td>
+                    <td>{{ req.quantity }}</td>
+                    <td>{{ req.request_date }}</td>
+                    <td>{{ req.status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No blood requests found.</p>
+    {% endif %}
+</body>
+</html>

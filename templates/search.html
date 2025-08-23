@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Search Donors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+        }
+        label {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        input, select, button {
+            padding: 8px;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 15px;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body class="container">
+    <h1>Search Donors</h1>
+    <div style="display: flex; align-items: flex-start; gap: 20px;">
+        <form method="GET" action="{{ url_for('search') }}" style="flex: 1; max-width: 400px;">
+            <label for="blood_type">Blood Type:</label>
+            <select name="blood_type" id="blood_type">
+                <option value="" {% if request.args.get('blood_type') == '' %}selected{% endif %}>All Blood Types</option>
+                <option value="A+" {% if request.args.get('blood_type') == 'A+' %}selected{% endif %}>A+</option>
+                <option value="A-" {% if request.args.get('blood_type') == 'A-' %}selected{% endif %}>A-</option>
+                <option value="B+" {% if request.args.get('blood_type') == 'B+' %}selected{% endif %}>B+</option>
+                <option value="B-" {% if request.args.get('blood_type') == 'B-' %}selected{% endif %}>B-</option>
+                <option value="AB+" {% if request.args.get('blood_type') == 'AB+' %}selected{% endif %}>AB+</option>
+                <option value="AB-" {% if request.args.get('blood_type') == 'AB-' %}selected{% endif %}>AB-</option>
+                <option value="O+" {% if request.args.get('blood_type') == 'O+' %}selected{% endif %}>O+</option>
+                <option value="O-" {% if request.args.get('blood_type') == 'O-' %}selected{% endif %}>O-</option>
+            </select>
+            <label for="location">Location:</label>
+            <select name="location" id="location">
+                <option value="" {% if request.args.get('location') == '' %}selected{% endif %}>All Locations</option>
+                <option value="New York" {% if request.args.get('location') == 'New York' %}selected{% endif %}>New York</option>
+                <option value="Los Angeles" {% if request.args.get('location') == 'Los Angeles' %}selected{% endif %}>Los Angeles</option>
+                <option value="Houston" {% if request.args.get('location') == 'Houston' %}selected{% endif %}>Houston</option>
+                <option value="Banglore" {% if request.args.get('location') == 'Banglore' %}selected{% endif %}>Banglore</option>
+                <option value="Mysore" {% if request.args.get('location') == 'Mysore' %}selected{% endif %}>Mysore</option>
+                <option value="Hasan" {% if request.args.get('location') == 'Hasan' %}selected{% endif %}>Hasan</option>
+                <option value="Delhi" {% if request.args.get('location') == 'Delhi' %}selected{% endif %}>Delhi</option>
+                <option value="Mumbai" {% if request.args.get('location') == 'Mumbai' %}selected{% endif %}>Mumbai</option>
+                <option value="Chennai" {% if request.args.get('location') == 'Chennai' %}selected{% endif %}>Chennai</option>
+                <option value="Chitradurga" {% if request.args.get('location') == 'Chitradurga' %}selected{% endif %}>Chitradurga</option>
+                <option value="Tumkur" {% if request.args.get('location') == 'Tumkur' %}selected{% endif %}>Tumkur</option>
+                <option value="Kodagu" {% if request.args.get('location') == 'Kodagu' %}selected{% endif %}>Kodagu</option>
+            </select>
+            <button type="submit">Search</button>
+        </form>
+        
+    </div>
+    {% if donors is defined %}
+    <h2>Search Results</h2>
+    {% if donors %}
+        <ul>
+            {% for donor in donors %}
+                <li>{{ donor.name }} ({{ donor.blood_type }}) - {{ donor.location }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No donors found matching your criteria.</p>
+    {% endif %}
+  {% endif %}
+    
+</body>
+</html>

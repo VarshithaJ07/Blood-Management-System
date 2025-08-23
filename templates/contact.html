@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - BloodCare</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body class="container5">
+ 
+  <section class="contact-section">
+    
+      <div class="contact-body"> 
+        <h2 class="txt">Contact Us!</h2>
+        <div class="para-container">
+          <p class="para">Anybody Can Give Blood.</p>
+            <p class="para2">"Tears Of Mother Cannot Save Her Child.But Your Blood Can."</p>
+          <p class="para1">Have questions or need support? Reach out to us!</p>
+        </div>
+      </div>
+      <div class="contact-container">
+        <form action="/contact" method="POST" class="contact-form">
+          <div class="input-icon">
+            <i class="fas fa-user"></i>
+            <input type="text" name="name" placeholder="Your Name" required />
+          </div>
+          
+          <div class="input-icon">
+            <i class="fas fa-envelope"></i>
+            <input type="email" name="email" placeholder="Your Email" required />
+          </div>
+          
+          <div class="input-icon">
+            <i class="fas fa-message"></i>
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+          </div>
+          
+          <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+        </form>
+        
+
+    </div>
+  </section>
+  <footer class="footer d-flex flex-row">
+    <p>© 2025 BloodCare | All rights reserved </p>            
+    <p> bloodcare@gmail.com </p>
+</footer>
+
+</body>
+</html>
